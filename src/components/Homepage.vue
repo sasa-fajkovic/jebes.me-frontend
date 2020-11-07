@@ -23,6 +23,7 @@
 
 <script>
 import Sentence from './Sentence.vue';
+import axios from 'axios';
 
 export default {
     components: {
@@ -30,17 +31,20 @@ export default {
     },
     data: () => {
         return {
-            sentenceList: [
-                {
-                    "croatianValue": "c1",
-                    "englishValue": "e1"
-                },
-                {
-                    "croatianValue": "c2",
-                    "englishValue": "e2"
-                }
-            ]
+            sentenceList: []
         }
+    },
+    methods: {
+        fetchSentenceList: function () {
+            axios.get("http://localhost:8081/api/sentences/?amount=10")
+            .then((result) => {
+                console.log(result)
+                this.sentenceList = result.data
+            })
+        }
+    },
+    mounted() {
+        this.fetchSentenceList();
     }
 
 }

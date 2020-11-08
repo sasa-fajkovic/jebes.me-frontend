@@ -4,21 +4,20 @@
 </template>
 
 <script>
-import Navigation from './views/Navigation.vue'
+import Navigation from "./views/Navigation.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    appNavigation: Navigation
-  }
-}
-
+    appNavigation: Navigation,
+  },
+};
 </script>
 
 <style>
 body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: burlywood;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: burlywood;
 }
 </style>

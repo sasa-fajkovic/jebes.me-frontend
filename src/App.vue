@@ -1,14 +1,15 @@
 <template>
-  <homepage></homepage>
+  <app-navigation></app-navigation>
+  <router-view />
 </template>
 
 <script>
-import Homepage from './components/Homepage.vue'
+import Navigation from './views/Navigation.vue'
 
 export default {
   name: 'App',
   components: {
-    Homepage
+    appNavigation: Navigation
   }
 }
 

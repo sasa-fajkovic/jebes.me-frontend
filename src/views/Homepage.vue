@@ -1,7 +1,9 @@
 <template>
-<app-navigation></app-navigation>
-
     <div id="mainSentenceContainer" v-if="dataIsLoaded">
+        <div>
+            <h4>Auto refresh every {{waitIntervalBetweenSentences/1000}} seconds.</h4>
+            <h4>Displaying random {{numberOfSentencesToGet}} sentences.</h4>
+        </div>
         <appSentence  class="centered"
         v-bind="currentSentence === true"
         :croatianValue="currentSentence.croatianValue"
@@ -12,14 +14,12 @@
 </template>
 
 <script>
-import Sentence from './Sentence.vue'
-import Navigation from './Navigation.vue'
+import Sentence from '../components/Sentence.vue'
 import axios from 'axios'
 
 export default {
     components: {
-        appSentence: Sentence,
-        appNavigation: Navigation
+        appSentence: Sentence
     },
     data: () => {
         return {
@@ -83,5 +83,12 @@ export default {
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
+}
+
+h4 {
+    text-align: center;
+    color: #9c27b0;
+    display: block;
+    font-size: 16px;
 }
 </style>
